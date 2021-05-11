@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Container } from "react-bootstrap";
+import { Spinner, Card, Button, Container } from "react-bootstrap";
 import Tweet from "../assets/images/tweet.png";
 import "./style.css";
 import axios from "axios";
@@ -15,10 +15,11 @@ const Content = ({ service }) => {
   const fetchItems = async () => {
     let item;
     try {
-      if (service == "true") {
+      if (service) {
         item = await axios.get(URL2);
       } else {
         item = await axios.get(URL1);
+        console.log(item.data);
       }
       setItems(item.data);
       setLoad(false);
@@ -32,13 +33,27 @@ const Content = ({ service }) => {
     console.log(items);
   }, [location, services]);
 
-  let itemList = <Card.Title>Please Select location and Service.</Card.Title>;
+  let itemList;
+  if ((location && services) == null && items.length == 0) {
+    itemList = <Card.Title>Please select the location and services</Card.Title>;
+  }
+
+  if (location != null && services == null && items.length == 0) {
+    itemList = <Spinner animation="grow" />;
+    if (load) {
+      itemList = <Card.Title>No Data Found.</Card.Title>;
+    }
+  }
+  if ((location && services) != null && items.length == 0) {
+    itemList = <Card.Title>No data found</Card.Title>;
+  }
+
   if (!load) {
-    if (items != null) {
-      itemList = items.map((em) => {
-        const { id, title, price, image, description } = em;
+    if (!load && items.length != 0) {
+      itemList = items.map((post) => {
+        const { id, title, price, image, description } = post;
         return (
-          <Card className="w-50 mb-4" key={id}>
+          <Card className="w-10 mb-4 ml-4" key={id}>
             <Card.Header>
               <div className="header">
                 <div className="title">
@@ -67,9 +82,7 @@ const Content = ({ service }) => {
 
   return (
     <>
-      <Container>
-        <div className="item-lists">{itemList}</div>
-      </Container>
+      <Container>{itemList}</Container>
     </>
   );
 };

@@ -1,0 +1,7 @@
+.home-container {
+  display: flex;
+  margin: 10px;
+  align-items: flex-start;
+  justify-content: right;
+  padding: 50px;
+}
