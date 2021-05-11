@@ -15,6 +15,7 @@ const Content = ({ service }) => {
   const fetchItems = async () => {
     let item;
     try {
+      setItems([]);
       if (service) {
         item = await axios.get(URL2);
       } else {
@@ -31,25 +32,23 @@ const Content = ({ service }) => {
   useEffect(() => {
     fetchItems();
     console.log(items);
-  }, [location, services]);
+  }, [location]);
 
   let itemList;
-  if ((location && services) == null && items.length == 0) {
+  if ((location && services) == null && load) {
     itemList = <Card.Title>Please select the location and services</Card.Title>;
   }
 
-  if (location != null && services == null && items.length == 0) {
-    itemList = <Spinner animation="grow" />;
-    if (load) {
-      itemList = <Card.Title>No Data Found.</Card.Title>;
-    }
+  if (location != null && services == null && load) {
+    itemList = <Spinner animation="border" role="status" />;
   }
+
   if ((location && services) != null && items.length == 0) {
     itemList = <Card.Title>No data found</Card.Title>;
   }
 
   if (!load) {
-    if (!load && items.length != 0) {
+    if (items.length != 0) {
       itemList = items.map((post) => {
         const { id, title, price, image, description } = post;
         return (
