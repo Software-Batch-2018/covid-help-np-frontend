@@ -5,3 +5,7 @@
   justify-content: right;
   padding: 50px;
 }
+
+.button-container{
+  display: contents;
+}
