@@ -36,7 +36,7 @@ const Content = () => {
         const {_id, filename} = post
         const {  Location, Info, Type } = post.metadata;
         return (
-          <Card className="w-10 mb-4 ml-4" key={_id}>
+          <Card className="w-10 mb-4 " key={_id}>
             <Card.Header>
               <div className="header">
                 <div className="title">

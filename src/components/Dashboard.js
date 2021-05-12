@@ -15,6 +15,7 @@ const Dashboard = () => {
 
   const onClickHandler = (e) => {
     setLocation(e.target.value);
+    
   };
 
   return (
