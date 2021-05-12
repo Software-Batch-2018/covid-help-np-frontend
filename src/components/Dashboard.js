@@ -29,12 +29,11 @@ const Dashboard = () => {
               setSearchTerm(event.target.value);
             }
           }
-          value={location}
-          />
+        />
         </Form>
         <ButtonGroup role="group" className="mt-4 ml-2 mr-2  flex-wrap">
         </ButtonGroup>
-        <div>
+        <div className="button-containers">
                 {JSONDATA.filter((val)=>{
                     if(searchTerm === ""){
                         return val
@@ -48,7 +47,7 @@ const Dashboard = () => {
                       <Link to={'/' + val.name}>
                          <Button  className="mr-2 mb-2" variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
                       </Link>
-                      </div>
+                    </div>
                     )
                 })}
             </div>
