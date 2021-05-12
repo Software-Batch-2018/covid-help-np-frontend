@@ -10,7 +10,6 @@ const Content = ({ service }, props) => {
   const [load, setLoad] = useState(true);
   
   const { location, services } = useParams();
-  console.log(props)
   const URL1 = `http://localhost:5001/${location}`;
   const URL2 = `https://fakestoreapi.com/products/${location}/${services}`;
   const fetchItems = async () => {
@@ -21,18 +20,15 @@ const Content = ({ service }, props) => {
         item = await axios.get(URL2);
       } else {
         item = await axios.get(URL1);
-        console.log(item.data);
       }
       setItems(item.data);
       setLoad(false);
     } catch (e) {
-      console.log(e);
     }
   };
 
   useEffect(() => {
     fetchItems();
-    console.log(items);
   }, [location]);
 
   let itemList;
