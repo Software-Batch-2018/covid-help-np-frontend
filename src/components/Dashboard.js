@@ -14,9 +14,7 @@ const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const onClickHandler = (e) => {
-    e.preventDefault();
     setLocation(e.target.value);
-    console.log(e.target.value);
   };
 
   return (
@@ -31,6 +29,7 @@ const Dashboard = () => {
               setSearchTerm(event.target.value);
             }
           }
+          value={location}
           />
         </Form>
         <ButtonGroup role="group" className="mt-4 ml-2 mr-2  flex-wrap">
@@ -47,7 +46,7 @@ const Dashboard = () => {
                     return (
                       <div className="button-container">
                       <Link to={'/' + val.name}>
-                         <Button className="mr-2 mb-2" variant="secondary" value={val.name}> {val.name} </Button>
+                         <Button className="mr-2 mb-2" variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
                       </Link>
                       </div>
                     )
