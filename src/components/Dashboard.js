@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import JSONDATA from './data/places.json';
-
+import JSONDATA from "./data/places.json";
+import { NavLink } from "react-router-dom";
 import {
   Button,
   ButtonGroup,
@@ -8,16 +8,9 @@ import {
   FormControl,
   Jumbotron,
 } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-const Dashboard = () => {
-  const [location, setLocation] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
 
-  const onClickHandler = (e) => {
-    e.preventDefault();
-    setLocation(e.target.value);
-    console.log(e.target.value);
-  };
+const Dashboard = () => {
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <>
@@ -25,35 +18,42 @@ const Dashboard = () => {
         <Form inline>
           <FormControl
             type="text"
-            placeholder="Search for you city or Select from below"
+            placeholder="Search for you city or search from below"
             className="mr-4 w-100"
-            onChange={(event)=>{
+            onChange={(event) => {
               setSearchTerm(event.target.value);
-            }
-          }
+            }}
           />
         </Form>
-        <ButtonGroup role="group" className="mt-4 ml-2 mr-2  flex-wrap">
-        </ButtonGroup>
+        <ButtonGroup
+          role="group"
+          className="mt-4 ml-2 mr-2  flex-wrap"
+        ></ButtonGroup>
         <div>
-                {JSONDATA.filter((val)=>{
-                    if(searchTerm == ""){
-                        return val
-                    }
-                    else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
-                        return val
-                    }
-                }).map((val, key)=>{
-                    return (
-                      <div className="button-container">
-                      <NavLink to={'/api/' + val.name}>
-                         <Button className="mr-2 mb-2" variant="secondary" value={val.name} onClick={(e) => onClickHandler(e)}> {val.name} </Button>
-                      </NavLink>
-                      </div>
-                    )
-                })}
-            </div>
-
+          {JSONDATA.filter((val) => {
+            if (searchTerm == "") {
+              return val;
+            } else if (
+              val.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          }).map((val, key) => {
+            return (
+              <div className="button-container">
+                <NavLink to={val.name}>
+                  <Button
+                    className="mr-2 mb-2"
+                    variant="secondary"
+                    value={val.name}
+                  >
+                    {val.name}
+                  </Button>
+                </NavLink>
+              </div>
+            );
+          })}
+        </div>
       </Jumbotron>
     </>
   );

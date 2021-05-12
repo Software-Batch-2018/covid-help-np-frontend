@@ -31,8 +31,7 @@ const Content = ({ service }) => {
 
   useEffect(() => {
     fetchItems();
-    console.log(items);
-  }, [location]);
+  }, [location, services]);
 
   let itemList;
   if ((location && services) == null && load) {
