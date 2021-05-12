@@ -2,7 +2,6 @@
 
 .home-container {
   display: flex;
-  margin: 10px;
   align-items: flex-start;
   justify-content: right;
   padding: 50px;
@@ -11,8 +10,8 @@
   .home-container {
     display: grid;
   }
-  .button:nth-child(-n+4){
-    display:block;
+  .button-container + .button-container + .button-container + .button-container {
+    display: none;
 }
 }
 
