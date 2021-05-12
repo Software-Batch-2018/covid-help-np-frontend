@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { Spinner, Card, Button, Container } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 import Tweet from "../assets/images/tweet.png";
 import "./style.css";
 import axios from "axios";
 import { useParams } from "react-router";
 
-const Content = ({ service }, props) => {
+const Content = () => {
   const [items, setItems] = useState([]);
   const [load, setLoad] = useState(true);
   
-  const { location, services } = useParams();
+  const { location } = useParams();
   const URL1 = `http://localhost:5001/${location}`;
+  
   const fetchItems = async () => {
     let item;
     try {
       setItems([]);
-      if (service) {
-        item = await axios.get(URL2);
-      } else {
-        item = await axios.get(URL1);
-      }
+      item = await axios.get(URL1);
       setItems(item.data);
       setLoad(false);
     } catch (e) {
@@ -31,25 +28,15 @@ const Content = ({ service }, props) => {
   }, [location]);
 
   let itemList;
-  if ((location && services) == null && load) {
-    itemList = <Card.Title>Please select the location and services</Card.Title>;
-  }
 
-  if (location != null && services == null && load) {
-    itemList = <Spinner animation="border" role="status" />;
-  }
-
-  if ((location && services) !== null && items.length === 0) {
-    itemList = <Card.Title>No data found</Card.Title>;
-  }
 
   if (!load) {
     if (items.length !== 0) {
       itemList = items.map((post) => {
-        const {filename} = post
-        const { id, Location, Info, Type } = post.metadata;
+        const {_id, filename} = post
+        const {  Location, Info, Type } = post.metadata;
         return (
-          <Card className="w-10 mb-4 ml-4" key={id}>
+          <Card className="w-10 mb-4 ml-4" key={_id}>
             <Card.Header>
               <div className="header">
                 <div className="title">

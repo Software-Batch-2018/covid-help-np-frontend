@@ -44,9 +44,9 @@ const Dashboard = () => {
                     }
                 }).map((val, key)=>{
                     return (
-                      <div className="button-container">
+                      <div className="button-container" key={key}>
                       <Link to={'/' + val.name}>
-                         <Button className="mr-2 mb-2" variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
+                         <Button  className="mr-2 mb-2" variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
                       </Link>
                       </div>
                     )
