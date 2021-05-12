@@ -8,7 +8,7 @@ import {
   FormControl,
   Jumbotron,
 } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const Dashboard = () => {
   const [location, setLocation] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -46,14 +46,13 @@ const Dashboard = () => {
                 }).map((val, key)=>{
                     return (
                       <div className="button-container">
-                      <NavLink to={'/api/' + val.name}>
-                         <Button className="mr-2 mb-2" variant="secondary" value={val.name} onClick={(e) => onClickHandler(e)}> {val.name} </Button>
-                      </NavLink>
+                      <Link to={'/' + val.name}>
+                         <Button className="mr-2 mb-2" variant="secondary" value={val.name}> {val.name} </Button>
+                      </Link>
                       </div>
                     )
                 })}
             </div>
-
       </Jumbotron>
     </>
   );
