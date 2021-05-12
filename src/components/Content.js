@@ -11,7 +11,6 @@ const Content = ({ service }, props) => {
   
   const { location, services } = useParams();
   const URL1 = `http://localhost:5001/${location}`;
-  const URL2 = `https://fakestoreapi.com/products/${location}/${services}`;
   const fetchItems = async () => {
     let item;
     try {
@@ -40,12 +39,12 @@ const Content = ({ service }, props) => {
     itemList = <Spinner animation="border" role="status" />;
   }
 
-  if ((location && services) != null && items.length == 0) {
+  if ((location && services) !== null && items.length === 0) {
     itemList = <Card.Title>No data found</Card.Title>;
   }
 
   if (!load) {
-    if (items.length != 0) {
+    if (items.length !== 0) {
       itemList = items.map((post) => {
         const {filename} = post
         const { id, Location, Info, Type } = post.metadata;
@@ -59,12 +58,12 @@ const Content = ({ service }, props) => {
                   <Button variant="primary">{Type}</Button>
                   </div>
                 </div>
-                <img className="tweetimg" src={Tweet} />
+                <img className="tweetimg" src={Tweet} alt="text" />
               </div>
             </Card.Header>
             <Card.Body>
               <Card.Text>{Info}</Card.Text>
-              <img src={"http://localhost:5001/image/"+filename} className="image-src"/>            
+              <img src={"http://localhost:5001/image/"+filename} className="image-src" alt="info"/>            
             </Card.Body>
           </Card>
         );

@@ -8,7 +8,7 @@ import {
   FormControl,
   Jumbotron,
 } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [location, setLocation] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -36,7 +36,7 @@ const Dashboard = () => {
         </ButtonGroup>
         <div>
                 {JSONDATA.filter((val)=>{
-                    if(searchTerm == ""){
+                    if(searchTerm === ""){
                         return val
                     }
                     else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
