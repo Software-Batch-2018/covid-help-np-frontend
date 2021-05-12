@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Content from "../components/Content";
 
 const ContentContainer = () => {
@@ -9,7 +9,7 @@ const ContentContainer = () => {
         <Route exact path="/">
           <Content />
         </Route>
-        <Route exact path="/:location">
+        <Route path="/:location">
           <Content />
         </Route>
         <Route exact path="/:location/:services">
@@ -20,4 +20,4 @@ const ContentContainer = () => {
     </>
   );
 };
-export default ContentContainer;
+export default withRouter(ContentContainer);

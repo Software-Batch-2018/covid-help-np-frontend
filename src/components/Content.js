@@ -5,12 +5,13 @@ import "./style.css";
 import axios from "axios";
 import { useParams } from "react-router";
 
-const Content = ({ service }) => {
+const Content = ({ service }, props) => {
   const [items, setItems] = useState([]);
   const [load, setLoad] = useState(true);
-
+  
   const { location, services } = useParams();
-  const URL1 = `https://fakestoreapi.com/products/${location}`;
+  console.log(props)
+  const URL1 = `http://localhost:5001/${location}`;
   const URL2 = `https://fakestoreapi.com/products/${location}/${services}`;
   const fetchItems = async () => {
     let item;
@@ -50,26 +51,24 @@ const Content = ({ service }) => {
   if (!load) {
     if (items.length != 0) {
       itemList = items.map((post) => {
-        const { id, title, price, image, description } = post;
+        const {filename} = post
+        const { id, Location, Info, Type } = post.metadata;
         return (
           <Card className="w-10 mb-4 ml-4" key={id}>
             <Card.Header>
               <div className="header">
                 <div className="title">
-                  <img src={image} />
                   <div className="inside-title">
-                    <h3>Saroj Aryal</h3>
-                    <p>@joerush18</p>
+                  <Card.Title>{Location}</Card.Title>
+                  <Button variant="primary">{Type}</Button>
                   </div>
                 </div>
                 <img className="tweetimg" src={Tweet} />
               </div>
             </Card.Header>
             <Card.Body>
-              <Card.Title>{title}</Card.Title>
-              <Card.Text>{description}</Card.Text>
-              {/* this is call now */}
-              <Button variant="primary">{price}</Button>
+              <Card.Text>{Info}</Card.Text>
+              <img src={"http://localhost:5001/image/"+filename} className="image-src"/>            
             </Card.Body>
           </Card>
         );
