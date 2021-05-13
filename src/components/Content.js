@@ -10,7 +10,7 @@ const Content = () => {
   const [load, setLoad] = useState(true);
 
   const { location } = useParams();
-  const URL1 = `http://localhost:5001/${location}`;
+  const URL1 = `http://52.23.55.28:5001/${location}`;
   let itemList;
   console.log(location)
   const fetchItems = async () => {
@@ -50,7 +50,7 @@ const Content = () => {
             </Card.Header>
             <Card.Body>
               <Card.Text>{Info}</Card.Text>
-              <img src={"http://localhost:5001/image/"+filename} className="image-src" alt="info"/>            
+              <img src={"http://52.23.55.28:5001/image/"+filename} className="image-src" alt="info"/>            
             </Card.Body>
           </Card>
         );
