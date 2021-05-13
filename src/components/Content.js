@@ -28,7 +28,9 @@ const Content = () => {
   }, [location]);
 
   let itemList;
-
+  if(location == null){
+    itemList = <Card.Title>Select the City.</Card.Title>;
+  }
 
   if (!load) {
     if (items.length !== 0) {
