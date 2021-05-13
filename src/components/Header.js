@@ -7,9 +7,9 @@ const Header = () => {
     return (
         <>
         <Navbar bg="light" variant="light" className="justify-content-between ">
-        <Link to="/" className="ml-4">Covid Army Nepal</Link>
+        <Link to="/" className="ml-4">Covid Help Nepal</Link>
         <Nav className = "ml-4 mr-4">
-        <NavLink >About</NavLink>
+           <a href="https://vaccine.mohp.gov.np">Register for Vaccination</a>
         </Nav>
         </Navbar>
         </>
