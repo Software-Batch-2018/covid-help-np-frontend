@@ -12,10 +12,7 @@ const ContentContainer = () => {
         <Route path="/:location">
           <Content />
         </Route>
-        <Route exact path="/:location/:services">
-          <Content service={true} />
-        </Route>
-        <Route>404 Not found</Route>
+        <Route path="*" >404 Not found</Route>
       </Switch>
     </>
   );

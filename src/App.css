@@ -1,10 +1,30 @@
+
+
 .home-container {
   display: flex;
-  margin: 10px;
   align-items: flex-start;
   justify-content: right;
   padding: 50px;
 }
+@media only screen and (max-width: 600px) {
+  .home-container {
+    display: grid;
+  }
+  .button-container + .button-container + .button-container + .button-container {
+    display: none;
+  }
+  .image-src{
+    width: 100% !important;
+  }
+  .container{
+    width: 100%;
+    padding-right: 0 !important;
+    padding-left: 0  !important;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+  }
+}
+
 
 .button-container{
   display: contents;
@@ -13,3 +33,4 @@
 .image-src{
   width: 80%;
 }
+

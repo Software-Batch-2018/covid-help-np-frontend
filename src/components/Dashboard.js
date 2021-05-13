@@ -8,18 +8,19 @@ import {
   FormControl,
   Jumbotron,
 } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Dashboard = () => {
   const [location, setLocation] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
 
   const onClickHandler = (e) => {
     setLocation(e.target.value);
+    
   };
 
   return (
     <>
-      <Jumbotron className="w-75 p-3">
+      <Jumbotron className="w-100 p-3">
         <Form inline>
           <FormControl
             type="text"
@@ -29,14 +30,13 @@ const Dashboard = () => {
               setSearchTerm(event.target.value);
             }
           }
-          value={location}
-          />
+        />
         </Form>
         <ButtonGroup role="group" className="mt-4 ml-2 mr-2  flex-wrap">
         </ButtonGroup>
-        <div>
+        <div className="container-button">
                 {JSONDATA.filter((val)=>{
-                    if(searchTerm == ""){
+                    if(searchTerm === ""){
                         return val
                     }
                     else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
@@ -44,11 +44,11 @@ const Dashboard = () => {
                     }
                 }).map((val, key)=>{
                     return (
-                      <div className="button-container">
+                    <div className="button-container" key={key}>
                       <Link to={'/' + val.name}>
-                         <Button className="mr-2 mb-2" variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
+                         <Button  className="button mr-2 mb-2 " variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
                       </Link>
-                      </div>
+                    </div>
                     )
                 })}
             </div>
