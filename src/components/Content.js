@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Card, Button, Container } from "react-bootstrap";
-import Tweet from "../assets/images/tweet.png";
+import Tweet from "../assets/images/covid.png";
 import "./style.css";
 import axios from "axios";
 import { useParams } from "react-router";
@@ -8,10 +8,11 @@ import { useParams } from "react-router";
 const Content = () => {
   const [items, setItems] = useState([]);
   const [load, setLoad] = useState(true);
-  
+
   const { location } = useParams();
-  const URL1 = `http://localhost:5001/${location}`;
-  
+  const URL1 = `http://192.168.100.65:5001/${location}`;
+  let itemList;
+  console.log(location)
   const fetchItems = async () => {
     let item;
     try {
@@ -27,7 +28,6 @@ const Content = () => {
     fetchItems();
   }, [location]);
 
-  let itemList;
 
 
   if (!load) {
@@ -50,12 +50,15 @@ const Content = () => {
             </Card.Header>
             <Card.Body>
               <Card.Text>{Info}</Card.Text>
-              <img src={"http://localhost:5001/image/"+filename} className="image-src" alt="info"/>            
+              <img src={"http://192.168.100.65:5001/image/"+filename} className="image-src" alt="info"/>            
             </Card.Body>
           </Card>
         );
       });
-    } else {
+    }else if(location == undefined ){
+        itemList = <Card.Title>Select the City.</Card.Title>;
+    }
+    else {
       itemList = <Card.Title>No Data Found.</Card.Title>;
     }
   }

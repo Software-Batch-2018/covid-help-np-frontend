@@ -23,6 +23,9 @@
     margin-right: 0 !important;
     margin-left: 0 !important;
   }
+  .small{
+    width: 80%;
+  }
 }
 
 
@@ -34,3 +37,13 @@
   width: 80%;
 }
 
+.dialog {
+  box-shadow: 0 8px 6px -6px black;
+  position: static;
+  left: 20%;
+  top: 10%;
+}
+
+.image {
+  width: 300px;
+}
