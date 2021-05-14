@@ -13,7 +13,6 @@ const Content = () => {
   const { location } = useParams();
   const URL1 = `https://covid-help-np.herokuapp.com/${location}`;
   let itemList;
-  console.log(location);
   const fetchItems = async () => {
     let item;
     try {
@@ -65,15 +64,15 @@ const Content = () => {
     } else if (location == undefined) {
       itemList = (
         <div className="message">
-          <Card.Title classname="m-4">
-            Please select the city to get covid related help.
+          <Card.Title className="m-4">
+            Please select the city to get covid related help &#128591;
           </Card.Title>
         </div>
       );
     } else {
       itemList = (
         <div className="message">
-          <Card.Title classname="m-auto">
+          <Card.Title className="m-auto">
             No data found for this city.
           </Card.Title>
         </div>

@@ -7,7 +7,7 @@ import ContentContainer from "./containers/ContentContainer";
 function App() {
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <div className="home-container">
         <Dashboard />
         <ContentContainer />
