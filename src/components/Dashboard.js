@@ -15,25 +15,22 @@ const Dashboard = () => {
 
   const onClickHandler = (e) => {
     setLocation(e.target.value);
-    
   };
 
   return (
     <>
-      <Jumbotron className="w-100 p-3">
+      <Jumbotron className="p-3">
         <Form inline>
           <FormControl
             type="text"
             placeholder="Search for you city or Select from below"
-            className="mr-4 w-100"
+            defaultValue={location}
             onChange={(event)=>{
               setSearchTerm(event.target.value);
             }
           }
         />
         </Form>
-        <ButtonGroup role="group" className="mt-4 ml-2 mr-2  flex-wrap">
-        </ButtonGroup>
         <div className="container-button">
                 {JSONDATA.filter((val)=>{
                     if(searchTerm === ""){
@@ -45,7 +42,7 @@ const Dashboard = () => {
                 }).map((val, key)=>{
                     return (
                     <div className="button-container" key={key}>
-                      <Link to={'/' + val.name}>
+                      <Link to={'/' + val.name}  >
                          <Button  className="button mr-2 mb-2 " variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
                       </Link>
                     </div>
