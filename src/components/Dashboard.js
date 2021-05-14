@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import {React, useState } from "react";
 import JSONDATA from './data/places.json';
 
 import {
@@ -8,6 +8,8 @@ import {
   Jumbotron,
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+
 const Dashboard = () => {
   const [location, setLocation] = useState("");
   const [searchTerm, setSearchTerm] = useState("");

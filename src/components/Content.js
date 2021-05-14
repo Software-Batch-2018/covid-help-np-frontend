@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { Card, Button, Container, Spinner } from "react-bootstrap";
+import {React, useState, useEffect } from "react";
+import { Card, Button, Container } from "react-bootstrap";
 import Tweet from "../assets/images/covid.png";
 import "./style.css";
 import axios from "axios";
 import { useParams } from "react-router";
+import SkeletonComponent from './Skeleton'
 
 const Content = () => {
   const [items, setItems] = useState([]);
@@ -30,7 +31,7 @@ const Content = () => {
   }, [location]);
 
   if (load) {
-    itemList = <Spinner animation="border" role="status" />;
+    itemList =<SkeletonComponent/>
   }
   
 
@@ -60,9 +61,9 @@ const Content = () => {
         );
       });
     }else if(location == undefined ){
-        itemList = <Card.Title>Select the City.</Card.Title>;
+        itemList = <div className="message"><Card.Title classname="m-4">Select the City to get Covid related help.</Card.Title></div>;
     }else{
-      itemList=<Card.Title>No Data Found</Card.Title>
+      itemList=<div className="message"><Card.Title classname="m-auto">No Data Found For this City.</Card.Title></div>
     }
   }
 
