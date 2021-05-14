@@ -1,80 +1,83 @@
-import React, { useState, useEffect } from "react";
-import { Spinner, Card, Button, Container } from "react-bootstrap";
-import Tweet from "../assets/images/tweet.png";
+import { React, useState, useEffect } from "react";
+import { Card, Button, Container } from "react-bootstrap";
+import Tweet from "../assets/images/covid.png";
 import "./style.css";
 import axios from "axios";
 import { useParams } from "react-router";
+import SkeletonComponent from "./Skeleton";
 
-const Content = ({ service }) => {
+const Content = () => {
   const [items, setItems] = useState([]);
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(false);
 
-  const { location, services } = useParams();
-  const URL1 = `https://fakestoreapi.com/products/${location}`;
-  const URL2 = `https://fakestoreapi.com/products/${location}/${services}`;
+  const { location } = useParams();
+  const URL1 = `https://covid-help-np.herokuapp.com/${location}`;
+  let itemList;
+  console.log(location);
   const fetchItems = async () => {
     let item;
     try {
       setItems([]);
-      if (service) {
-        item = await axios.get(URL2);
-      } else {
-        item = await axios.get(URL1);
-        console.log(item.data);
-      }
+      setLoad(true);
+      item = await axios.get(URL1);
       setItems(item.data);
       setLoad(false);
-    } catch (e) {
-      console.log(e);
-    }
+    } catch (e) {}
   };
 
   useEffect(() => {
     fetchItems();
-  }, [location, services]);
+  }, [location]);
 
-  let itemList;
-  if ((location && services) == null && load) {
-    itemList = <Card.Title>Please select the location and services</Card.Title>;
-  }
-
-  if (location != null && services == null && load) {
-    itemList = <Spinner animation="border" role="status" />;
-  }
-
-  if ((location && services) != null && items.length == 0) {
-    itemList = <Card.Title>No data found</Card.Title>;
+  if (load) {
+    itemList = <SkeletonComponent />;
   }
 
   if (!load) {
-    if (items.length != 0) {
+    if (items.length !== 0) {
       itemList = items.map((post) => {
-        const { id, title, price, image, description } = post;
+        const { _id, filename } = post;
+        const { Location, Info, Type } = post.metadata;
         return (
-          <Card className="w-10 mb-4 ml-4" key={id}>
+          <Card className="w-10 mb-4 " key={_id}>
             <Card.Header>
               <div className="header">
                 <div className="title">
-                  <img src={image} />
                   <div className="inside-title">
-                    <h3>Saroj Aryal</h3>
-                    <p>@joerush18</p>
+                    <Card.Title>{Location}</Card.Title>
+                    <Button variant="primary">{Type}</Button>
                   </div>
                 </div>
-                <img className="tweetimg" src={Tweet} />
+                <img className="tweetimg" src={Tweet} alt="text" />
               </div>
             </Card.Header>
             <Card.Body>
-              <Card.Title>{title}</Card.Title>
-              <Card.Text>{description}</Card.Text>
-              {/* this is call now */}
-              <Button variant="primary">{price}</Button>
+              <Card.Text>{Info}</Card.Text>
+              <img
+                src={"https://covid-help-np.herokuapp.com/image/" + filename}
+                className="image-src"
+                alt="info"
+              />
             </Card.Body>
           </Card>
         );
       });
+    } else if (location == undefined) {
+      itemList = (
+        <div className="message">
+          <Card.Title classname="m-4">
+            Select the City to get Covid related help.
+          </Card.Title>
+        </div>
+      );
     } else {
-      itemList = <Card.Title>No Data Found.</Card.Title>;
+      itemList = (
+        <div className="message">
+          <Card.Title classname="m-auto">
+            No Data Found For this City.
+          </Card.Title>
+        </div>
+      );
     }
   }
 

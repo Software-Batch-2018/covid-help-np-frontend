@@ -1,9 +1,8 @@
-[{
-    "name":"Kathmandu"
-},
+[
+    {"name":"Kathmandu"},
     {"name":"Pokhara"},
-    {"name":"Biratnagar"},
     {"name":"Butwal"},
+    {"name":"Biratnagar"},
     {"name":"Dhangadi"},
     {"name":"Dharan"},
     {"name":"Chitwan"},

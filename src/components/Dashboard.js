@@ -1,37 +1,32 @@
-import React, { useState } from "react";
+import { React, useState } from "react";
 import JSONDATA from "./data/places.json";
-import { NavLink } from "react-router-dom";
-import {
-  Button,
-  ButtonGroup,
-  Form,
-  FormControl,
-  Jumbotron,
-} from "react-bootstrap";
+
+import { Button, Form, FormControl, Jumbotron } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  const onClickHandler = (e) => {
+    setLocation(e.target.value);
+  };
+
   return (
     <>
-      <Jumbotron className="w-75 p-3">
+      <Jumbotron className="p-3">
         <Form inline>
           <FormControl
             type="text"
-            placeholder="Search for you city or search from below"
-            className="mr-4 w-100"
+            placeholder="Search for you city or Select from below"
+            defaultValue={location}
             onChange={(event) => {
               setSearchTerm(event.target.value);
             }}
           />
         </Form>
-        <ButtonGroup
-          role="group"
-          className="mt-4 ml-2 mr-2  flex-wrap"
-        ></ButtonGroup>
-        <div>
+        <div className="container-button">
           {JSONDATA.filter((val) => {
-            if (searchTerm == "") {
+            if (searchTerm === "") {
               return val;
             } else if (
               val.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -40,16 +35,18 @@ const Dashboard = () => {
             }
           }).map((val, key) => {
             return (
-              <div className="button-container">
-                <NavLink to={val.name}>
+              <div className="button-container" key={key}>
+                <Link to={"/" + val.name}>
                   <Button
-                    className="mr-2 mb-2"
+                    className="button mr-2 mb-2"
                     variant="secondary"
                     value={val.name}
+                    onClick={(e) => onClickHandler(e)}
                   >
-                    {val.name}
+                    {" "}
+                    {val.name}{" "}
                   </Button>
-                </NavLink>
+                </Link>
               </div>
             );
           })}
