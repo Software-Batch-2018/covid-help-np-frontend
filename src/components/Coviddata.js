@@ -1,5 +1,5 @@
 import React from "react";
-import CovidContainer from "../containers/Coviddata";
+import CovidContainer from "../containers/CovidDataContainer";
 
 const Coviddata = () => {
   return (
