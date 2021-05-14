@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Button, Container } from "react-bootstrap";
+import { Card, Button, Container, Spinner } from "react-bootstrap";
 import Tweet from "../assets/images/covid.png";
 import "./style.css";
 import axios from "axios";
@@ -10,7 +10,7 @@ const Content = () => {
   const [load, setLoad] = useState(true);
 
   const { location } = useParams();
-  const URL1 = `http://52.23.55.28:5001/${location}`;
+  const URL1 = `https://covid-help-np.herokuapp.com/${location}`;
   let itemList;
   console.log(location)
   const fetchItems = async () => {
@@ -28,7 +28,10 @@ const Content = () => {
     fetchItems();
   }, [location]);
 
-
+  if (load) {
+    itemList = <Spinner animation="border" role="status" />;
+  }
+  
 
   if (!load) {
     if (items.length !== 0) {
@@ -50,16 +53,15 @@ const Content = () => {
             </Card.Header>
             <Card.Body>
               <Card.Text>{Info}</Card.Text>
-              <img src={"http://52.23.55.28:5001/image/"+filename} className="image-src" alt="info"/>            
+              <img src={"https://covid-help-np.herokuapp.com/image/"+filename} className="image-src" alt="info"/>
             </Card.Body>
           </Card>
         );
       });
     }else if(location == undefined ){
         itemList = <Card.Title>Select the City.</Card.Title>;
-    }
-    else {
-      itemList = <Card.Title>No Data Found.</Card.Title>;
+    }else{
+      itemList=<Card.Title>No Data Found</Card.Title>
     }
   }
 
