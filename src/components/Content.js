@@ -66,7 +66,7 @@ const Content = () => {
       itemList = (
         <div className="message">
           <Card.Title classname="m-4">
-            Select the City to get Covid related help.
+            Please select the city to get covid related help.
           </Card.Title>
         </div>
       );
@@ -74,7 +74,7 @@ const Content = () => {
       itemList = (
         <div className="message">
           <Card.Title classname="m-auto">
-            No Data Found For this City.
+            No data found for this city.
           </Card.Title>
         </div>
       );
