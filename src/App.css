@@ -15,6 +15,11 @@ body
   margin-right: 0 !important;
   max-height: 100vh;
 }
+
+.card-title
+{
+  text-align: center;
+}
 nav
 {
   min-height: 8vh;
@@ -81,6 +86,11 @@ nav
   .ml-4
   {
     margin: 0;
+  }
+
+  .card-title
+  {
+    margin-top: 40%;
   }
 
 }
