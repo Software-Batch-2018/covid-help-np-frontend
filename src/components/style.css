@@ -1,0 +1,62 @@
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title img {
+  height: 45px;
+  border-radius: 23px;
+}
+
+.title p {
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.title h3 {
+  margin-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.tweetimg {
+  height: 40px;
+  border-radius: 23px;
+}
+
+.search-filter {
+  display: flex;
+  justify-content: space-around;
+}
+.form-inline
+{
+  margin-bottom:2%;
+}
+input.form-control
+{
+  width: 100% !important;
+}
+
+.jumbotron
+  {
+    width: 90%;
+  }
+
+.container
+{
+  width: 100%;
+  max-height: 83vh;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+::-webkit-scrollbar 
+{
+  display: none;
+}
