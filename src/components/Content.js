@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import {React, useState, useEffect } from "react";
 import { Card, Button, Container } from "react-bootstrap";
 import Tweet from "../assets/images/covid.png";
 import "./style.css";
 import axios from "axios";
 import { useParams } from "react-router";
+import SkeletonComponent from './Skeleton'
 
 const Content = () => {
   const [items, setItems] = useState([]);
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(false);
 
   const { location } = useParams();
   const URL1 = `https://covid-help-np.herokuapp.com/${location}`;
@@ -17,6 +18,7 @@ const Content = () => {
     let item;
     try {
       setItems([]);
+      setLoad(true);
       item = await axios.get(URL1);
       setItems(item.data);
       setLoad(false);
@@ -28,7 +30,10 @@ const Content = () => {
     fetchItems();
   }, [location]);
 
-
+  if (load) {
+    itemList =<SkeletonComponent/>
+  }
+  
 
   if (!load) {
     if (items.length !== 0) {
@@ -56,10 +61,9 @@ const Content = () => {
         );
       });
     }else if(location == undefined ){
-        itemList = <Card.Title>Select the City.</Card.Title>;
-    }
-    else {
-      itemList = <Card.Title>No Data Found.</Card.Title>;
+        itemList = <div className="message"><Card.Title classname="m-4">Select the City to get Covid related help.</Card.Title></div>;
+    }else{
+      itemList=<div className="message"><Card.Title classname="m-auto">No Data Found For this City.</Card.Title></div>
     }
   }
 
