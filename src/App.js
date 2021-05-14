@@ -2,16 +2,19 @@ import "./App.css";
 import Dashboard from "./components/Dashboard";
 import "./components/Header";
 import Header from "./components/Header";
-import ContentContainer from "./containers/ContentContainer";
+import ContentContainer from "./components/Content";
+import Wrapper from "./containers/Wrapper";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <div className="home-container">
-        <Dashboard />
-        <ContentContainer />
-      </div>
+      <Wrapper>
+        <Header />
+        <div className="home-container">
+          <Dashboard />
+          <ContentContainer />
+        </div>
+      </Wrapper>
     </div>
   );
 }

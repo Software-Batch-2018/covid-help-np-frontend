@@ -55,7 +55,7 @@ const Dashboard = () => {
             })}
           </div>
         </Jumbotron>
-        {/* <Coviddata /> */}
+        <Coviddata />
       </div>
     </>
   );

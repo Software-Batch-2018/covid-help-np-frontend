@@ -28,7 +28,7 @@ const Coviddata = () => {
   let datas;
   let types = [];
   if (!load) {
-    if (CovidData.length != 0) {
+    if (CovidData.length !== 0) {
       try {
         for (let glob in CovidData) {
           types.push(glob);

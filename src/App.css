@@ -1,12 +1,15 @@
 body {
   max-height: 100vh;
 }
+
 #root {
   max-height: 100vh;
 }
 .App {
   max-height: 100vh;
+  font-family: "Rubik", sans-serif;
 }
+
 .home-container {
   margin-right: 0 !important;
   max-height: 100vh;
