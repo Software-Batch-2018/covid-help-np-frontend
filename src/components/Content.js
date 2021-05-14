@@ -7,7 +7,7 @@ import { useParams } from "react-router";
 
 const Content = () => {
   const [items, setItems] = useState([]);
-  const [load, setLoad] = useState(true);
+  const [load, setLoad] = useState(false);
 
   const { location } = useParams();
   const URL1 = `https://covid-help-np.herokuapp.com/${location}`;
@@ -17,6 +17,7 @@ const Content = () => {
     let item;
     try {
       setItems([]);
+      setLoad(true);
       item = await axios.get(URL1);
       setItems(item.data);
       setLoad(false);

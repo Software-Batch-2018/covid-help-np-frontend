@@ -3,7 +3,6 @@ import JSONDATA from './data/places.json';
 
 import {
   Button,
-  ButtonGroup,
   Form,
   FormControl,
   Jumbotron,
@@ -43,7 +42,7 @@ const Dashboard = () => {
                     return (
                     <div className="button-container" key={key}>
                       <Link to={'/' + val.name}  >
-                         <Button  className="button mr-2 mb-2 " variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
+                         <Button  className="button mr-2 mb-2" variant="secondary" value={val.name}  onClick={(e) => onClickHandler(e)}> {val.name} </Button>
                       </Link>
                     </div>
                     )
