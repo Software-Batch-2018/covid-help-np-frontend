@@ -42,11 +42,49 @@
 input.form-control
 {
   width: 100% !important;
+  box-shadow: 2px 2px 10px #000000;
 }
 
-.jumbotron
+  .jumbotron
   {
     width: 90%;
+    background-color: rgb(202, 202, 202);
+    box-shadow: 2px 2px 10px #000000;
+    margin-bottom: 1vh !important;
+  }
+
+  .button
+  {
+    box-shadow: 2px 2px 10px #000000;
+  }
+
+  .button:focus
+  {
+    background-color: rgb(192, 192, 192);
+  }
+
+  .card-header
+  {
+    background-color: rgb(202, 202, 202);
+    border-radius: 10px !important;
+  }
+
+  .card
+  {
+    box-shadow: 2px 4px 10px #000000;
+    border-radius: 10px;
+  }
+a:focus
+{
+  text-decoration: none;
+  color: #000000;
+}
+
+a:hover
+  {
+    color: #000000;
+    text-decoration: none;
+    text-shadow: 2px 2px 10px #000000;
   }
 
 .container
@@ -55,6 +93,7 @@ input.form-control
   max-height: 83vh;
   overflow-y: scroll;
   scroll-behavior: smooth;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar 
 {

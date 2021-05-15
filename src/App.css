@@ -5,20 +5,32 @@ body
 #root
 {
   max-height: 100vh;
+  background-color: rgb(226, 226, 226);
 }
 .App
 {
+  min-height: 100vh;
   max-height: 100vh;
 }
 .home-container
 {
   margin-right: 0 !important;
-  max-height: 100vh;
 }
 nav
 {
-  min-height: 8vh;
-  background-color: rgb(186, 192, 192);
+  min-height: 6vh;
+  background-color: rgb(202, 202, 202);
+  box-shadow: 2px 2px 10px #000000;
+}
+
+.info
+{
+  text-align: center;
+  margin-top: 2px;
+  color: red;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 1vh;
 }
 
 .ml-4
@@ -38,9 +50,19 @@ nav
   display: flex;
   align-items: flex-start;
   justify-content: right;
-  padding-top: 50px !important;
-  padding:1%
+  padding-top: 0 !important;
 }
+
+.card-title
+  {
+    text-align: center;
+  }
+
+  .message
+  {
+      margin-top: 10%;
+  }
+
 @media only screen and (max-width: 600px) {
   .home-container {
     display: grid;
@@ -83,6 +105,16 @@ nav
     margin: 0;
   }
 
+  .info
+  {
+    font-size: 12px;
+  }
+
+  .message
+  {
+      margin-top: 40%;
+  }
+
 }
 
 
@@ -105,7 +137,10 @@ nav
   width: 300px;
 }
 
-.message{
-
- 
+.footer
+{
+  position: fixed !important;
+  bottom: 0;
+  width: 100vw !important;
+  max-height: 6vh;
 }
