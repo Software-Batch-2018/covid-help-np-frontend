@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header/>
-      <p className="info">We Dont Own Any of The Content Posted Here. This is a Colection of Posts Found on Social Medias<br></br>&#10071;Please Report us at ..... if any Frauds Found&#10071;</p>
+      <p className="info">We Dont Own Any of The Content Posted Here. This is a Collection of Posts Found on Social Medias<br></br>&#10071;Please Report us at ..... if any Frauds Found&#10071;</p>
       <div className="home-container">
         <Dashboard />
         <ContentContainer />

@@ -47,7 +47,7 @@ const Content = () => {
                 <div className="title">
                   <div className="inside-title">
                   <Card.Title>{Location}</Card.Title>
-                  <Button variant="primary">{Type}</Button>
+                  <Button variant="secondary">{Type}</Button>
                   </div>
                 </div>
                 <img className="tweetimg" src={Tweet} alt="text" />
@@ -61,7 +61,7 @@ const Content = () => {
         );
       });
     }else if(location == undefined ){
-        itemList = <div className="message"><Card.Title classname="m-4">Select the City to get Covid related help.</Card.Title></div>;
+        itemList = <div><p className="info1">We Dont Own Any of The Content Posted Here. This is a Collection of Posts Found on Social Medias<br></br>&#10071;Please Report us at ..... if any Frauds Found&#10071;</p> <div className="message"><Card.Title classname="m-4">Select the City to get Covid related help.</Card.Title></div></div>;
     }else{
       itemList=<div className="message"><Card.Title classname="m-auto">No Data Found For this City.</Card.Title></div>
     }

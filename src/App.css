@@ -5,7 +5,6 @@ body
 #root
 {
   max-height: 100vh;
-  background-color: rgb(226, 226, 226);
 }
 .App
 {
@@ -19,8 +18,7 @@ body
 nav
 {
   min-height: 6vh;
-  background-color: rgb(202, 202, 202);
-  box-shadow: 2px 2px 10px #000000a4;
+  background-color:black;
 }
 
 .info
@@ -33,16 +31,21 @@ nav
   margin-bottom: 1vh;
 }
 
+.info::-webkit-scrollbar
+{
+  visibility: hidden;
+}
+
 .ml-4
 {
   font-weight: 600;
-  color: black;
+  color: wheat;
 }
 
 .ml-4 a
 {
   font-weight: 600;
-  color: black;
+  color: wheat;
   text-align: right;
 }
 
@@ -69,6 +72,18 @@ nav
     width: 100vw !important;
     padding-top: 5px !important;
     height: min-content !important;
+  }
+
+  .info
+  {
+    display: none !important;
+  }
+
+  .info1
+  {
+    text-align: center;
+    color: red;
+    visibility: visible !important;
   }
 
   .container

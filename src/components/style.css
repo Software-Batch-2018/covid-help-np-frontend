@@ -25,6 +25,10 @@
   justify-content: space-between;
 }
 
+.info1
+{
+  visibility: hidden;
+}
 
 .tweetimg {
   height: 40px;
@@ -42,49 +46,45 @@
 input.form-control
 {
   width: 100% !important;
-   box-shadow: 2px 2px 10px #000000a4;;
+  box-shadow: 2px 4px 10px #00000025;
 }
 
   .jumbotron
   {
     width: 90%;
-    background-color: rgb(202, 202, 202);
-     box-shadow: 2px 2px 10px #000000a4;;
+    background-color: white;
+     box-shadow: 2px 2px 10px #00000044;
     margin-bottom: 1vh !important;
-  }
-
-  .button
-  {
-     box-shadow: 2px 2px 10px #000000a4;;
+    margin-left: 1vw;
   }
 
   .button:focus
   {
-    background-color: rgb(192, 192, 192);
+    background-color: black;
   }
 
   .card-header
   {
-    background-color: rgb(202, 202, 202);
+    background-color: white;
     border-radius: 10px !important;
   }
 
   .card
   {
-    box-shadow: 2px 4px 10px #000000;
+    box-shadow: 2px 4px 10px #00000044;
     border-radius: 10px;
   }
 a:focus
 {
   text-decoration: none;
-  color: #000000;
+  color: wheat;
 }
 
 a:hover
   {
-    color: #000000;
+    color: wheat;
     text-decoration: none;
-    text-shadow: 2px 2px 10px #000000;
+    text-shadow: 2px 2px 10px #d8d8d8;
   }
 
 .container
