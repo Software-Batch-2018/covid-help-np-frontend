@@ -34,6 +34,7 @@ nav
 .info::-webkit-scrollbar
 {
   visibility: hidden;
+  display: none;
 }
 
 .ml-4
@@ -61,10 +62,6 @@ nav
     text-align: center;
   }
 
-  .message
-  {
-      margin-top: 10%;
-  }
 
 @media only screen and (max-width: 600px) {
   .home-container {
