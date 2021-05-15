@@ -24,19 +24,12 @@ nav
 .info
 {
   text-align: center;
-  margin-top: 1vh;
+  margin-top: 2.5vh;
   color: red;
   font-size: 15px;
   font-weight: 500;
-  margin-bottom: 1vh;
+  margin-bottom: 2.5vh;
 }
-
-.info::-webkit-scrollbar
-{
-  visibility: hidden;
-  display: none;
-}
-
 .ml-4
 {
   font-weight: 600;
