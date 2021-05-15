@@ -20,7 +20,7 @@ nav
 {
   min-height: 6vh;
   background-color: rgb(202, 202, 202);
-  box-shadow: 2px 2px 10px #000000c2;
+  box-shadow: 2px 2px 10px #000000a4;
 }
 
 .info
@@ -127,7 +127,7 @@ nav
 }
 
 .dialog {
-  box-shadow: 0 8px 6px -6px #000000c2;
+  box-shadow: 0 8px 6px -6px #000000a4;
   position: static;
   left: 20%;
   top: 10%;
