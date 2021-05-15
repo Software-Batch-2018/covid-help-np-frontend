@@ -24,7 +24,7 @@ nav
 .info
 {
   text-align: center;
-  margin-top: 2px;
+  margin-top: 1vh;
   color: red;
   font-size: 15px;
   font-weight: 500;
@@ -81,6 +81,7 @@ nav
 
   .info1
   {
+    margin-top : 3vh;
     text-align: center;
     color: red;
     visibility: visible !important;
