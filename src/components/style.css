@@ -42,20 +42,20 @@
 input.form-control
 {
   width: 100% !important;
-  box-shadow: 2px 2px 10px #000000;
+   box-shadow: 2px 2px 10px #000000c2;;
 }
 
   .jumbotron
   {
     width: 90%;
     background-color: rgb(202, 202, 202);
-    box-shadow: 2px 2px 10px #000000;
+     box-shadow: 2px 2px 10px #000000c2;;
     margin-bottom: 1vh !important;
   }
 
   .button
   {
-    box-shadow: 2px 2px 10px #000000;
+     box-shadow: 2px 2px 10px #000000c2;;
   }
 
   .button:focus
