@@ -1,0 +1,9 @@
+[
+    {"type":"Home ICU"},
+    {"type":"ICU"},
+    {"type":"Oxygen"},
+    {"type":"Medicine"},
+    {"type":"Ambulance"},
+    {"type":"Covid Test"},
+    {"type":"Others"}
+]

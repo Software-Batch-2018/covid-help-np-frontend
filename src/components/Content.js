@@ -10,10 +10,9 @@ const Content = () => {
   const [items, setItems] = useState([]);
   const [load, setLoad] = useState(false);
 
-  const { location } = useParams();
-  const URL1 = `https://covid-help-np.herokuapp.com/${location}`;
+  const {location, Resource } = useParams();
+  const URL1 = `https://covid-help-np.herokuapp.com/loc/${location}`;
   let itemList;
-  console.log(location)
   const fetchItems = async () => {
     let item;
     try {
@@ -28,16 +27,23 @@ const Content = () => {
 
   useEffect(() => {
     fetchItems();
-  }, [location]);
+  }, [Resource]);
 
   if (load) {
     itemList =<SkeletonComponent/>
   }
-  
+
+  const arr = []
+
+  items.filter(function (entry) {
+    if(entry.metadata.Type==Resource){
+      arr.push(entry)
+    }
+  });
 
   if (!load) {
-    if (items.length !== 0) {
-      itemList = items.map((post) => {
+    if (arr.length !== 0) {
+      itemList = arr.map((post) => {
         const {_id, filename} = post
         const {  Location, Info, Type } = post.metadata;
         return (
@@ -60,10 +66,10 @@ const Content = () => {
           </Card>
         );
       });
-    }else if(location == undefined ){
-        itemList = <div><p className="info1">We Dont Own Any of The Content Posted Here. This is a Collection of Posts Found on Social Medias<br></br>&#10071;Please Report us at ..... if any Frauds Found&#10071;</p> <div className="message"><Card.Title classname="m-4">Select the City to get Covid related help.</Card.Title></div></div>;
+    }else if(location === undefined ){
+        itemList = <div><p className="info1">We Dont Own Any of The Content Posted Here. This is a Collection of Posts Found on Social Medias<br></br>&#10071;Please Report us at <a href="mailto:ecovidnpinfo22@gmail.com">covidnpinfo22@gmail.com</a>  if any Frauds Found&#10071;</p> <div className="message"><Card.Title className="m-4">Select the City to get Covid related help.</Card.Title></div></div>;
     }else{
-      itemList=<div className="message"><Card.Title classname="m-auto">No Data Found For this City.</Card.Title></div>
+      itemList=<div className="message"><Card.Title className="m-auto">No Data Found For this City.</Card.Title></div>
     }
   }
 

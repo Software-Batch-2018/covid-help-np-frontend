@@ -99,3 +99,10 @@ a:hover
 {
   display: none;
 }
+
+.headbar{
+  height: 1vh;
+}
+.img-class{
+  width: 40%;
+}
