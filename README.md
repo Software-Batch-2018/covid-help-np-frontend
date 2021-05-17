@@ -1,6 +1,7 @@
 # Covid Help Nepal (Frontend)
 
-> This is a fullstack project created using [React Technology](https://reactjs.org/)
+> This is a fullstack project created using [React Technology](https://reactjs.org/) in order to provide information on various services availability in various cities of nepal  to help people in need at this hrash pandemic situation.
+> This small attempt could also save someone's life. Feel free to share and contribute to this project.
 
 [![NPM Version][npm-image]][npm-url]
 
